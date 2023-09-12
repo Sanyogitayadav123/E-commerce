@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import axios from 'axios'
 import NEXT_PUBLIC_BASE_URL from '../../../api_url';
 import {useForm} from 'react-hook-form'
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookies'
-const index = () => {
+const Index = () => {
   const[emailError,setEmailError] = useState('')
   const [passwordVisible, setPasswordVisible] = useState(false);
   const[passwordError,setPasswordError] = useState('')
@@ -86,4 +86,4 @@ try {
   )
 }
 
-export default index
+export default Index
