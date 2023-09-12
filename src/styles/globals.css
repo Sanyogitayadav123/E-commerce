@@ -13,6 +13,62 @@ body {
   box-sizing: border-box;
   user-select: none;
 }
+.update-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user-pic {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  overflow: hidden;
+  position: relative;
+}
+
+.file-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.file-upload-input {
+  display: none;
+}
+
+.file-upload-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.file-upload-text {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Style the icon when hovering over the user picture */
+.user-pic:hover .file-upload-icon {
+  color: #007bff; /* Change the color to your preference */
+}
+
+/* Style the border when hovering over the user picture */
+.user-pic:hover {
+  border-color: #007bff; /* Change the color to your preference */
+}
+
+.err-msg{
+  color: rgb(237, 47, 47);
+}
 .bg-img {
   background: url("/bg.jpg");
   height: 100vh;
@@ -35,7 +91,7 @@ body {
   z-index: 999;
   text-align: center;
   padding: 60px 32px;
-  width: 370px;
+  width: 450px;
   transform: translate(-50%, -50%);
   background: rgba(255, 255, 255, 0.04);
   box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
