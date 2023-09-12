@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useEffect } from "react";
 
 const SignUp = () => {
@@ -56,7 +57,7 @@ const SignUp = () => {
         </div>
         <div className="signup">
           Already have account?
-          <a href="#">Login Now</a>
+          <Link href="/Signin">Login Now</Link>
         </div>
       </div>
     </div>
