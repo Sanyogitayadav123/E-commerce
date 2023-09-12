@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookies'
 const index = () => {
   const[emailError,setEmailError] = useState('')
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const[passwordError,setPasswordError] = useState('')
 
   const router = useRouter()
@@ -23,9 +24,6 @@ try {
   }
 }
   }
-
-  const [passwordVisible, setPasswordVisible] = useState(false);
-
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
