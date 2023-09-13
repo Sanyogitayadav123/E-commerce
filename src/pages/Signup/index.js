@@ -5,8 +5,8 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
-import NEXT_PUBLIC_BASE_URL from "../../../api_url";
 import { useSession,signIn,signOut } from "next-auth/react";
+import { NEXT_PUBLIC_BASE_URL } from "../../../api_url";
 
 const validateSchema = yup.object().shape({
   name: yup
