@@ -3,6 +3,7 @@ import user from "../../../public/user-img.jpeg";
 import Image from "next/image";
 import cookies from "js-cookies";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Header = () => {
   const router = useRouter();
@@ -28,9 +29,9 @@ const Header = () => {
           <div className="row">
             <div className="col-12">
               <nav className="main-nav">
-                <a href="/" className="logo">
+                <Link href="/" className="logo">
                   <img src="/images/logo.png" />
-                </a>
+                </Link>
 
                 <ul className="nav">
                   <li className="scroll-to-section">
@@ -51,16 +52,16 @@ const Header = () => {
                     <a href="">Pages</a>
                     <ul>
                       <li>
-                        <a href="/About">About Us</a>
+                        <Link href="/About">About Us</Link>
                       </li>
                       <li>
-                        <a href="/Products">Products</a>
+                        <Link href="/Products">Products</Link>
                       </li>
                       <li>
-                        <a href="/SingleProduct">Single Product</a>
+                        <Link href="/SingleProduct">Single Product</Link>
                       </li>
                       <li>
-                        <a href="/Contact">Contact Us</a>
+                        <Link href="/Contact">Contact Us</Link>
                       </li>
                     </ul>
                   </li>
@@ -97,20 +98,20 @@ const Header = () => {
                       <Image src={user} alt="img" className="user-img" />
                       <ul>
                         <li>
-                          <a href="/UpdateUser">Profile</a>
+                          <Link href="/UpdateUser">Profile</Link>
                         </li>
                         <li>
-                          <a onClick={handleLogout}>Logout</a>
+                          <div onClick={handleLogout}>Logout</div>
                         </li>
                       </ul>
                     </li>
                   ) : (
                     <>
                       <li className="scroll-to-section">
-                        <a href="/Signup">Sign Up</a>
+                        <Link href="/Signup">Sign Up</Link>
                       </li>
                       <li className="scroll-to-section">
-                        <a href="/Signin">Sign In</a>
+                        <Link href="/Signin">Sign In</Link>
                       </li>
                     </>
                   )}

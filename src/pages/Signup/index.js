@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import NEXT_PUBLIC_BASE_URL from "../../../api_url";
+import { useSession,signIn,signOut } from "next-auth/react";
 
 const validateSchema = yup.object().shape({
   name: yup
@@ -21,6 +22,7 @@ const validateSchema = yup.object().shape({
 });
 const SignUp = () => {
   const router = useRouter();
+  const{data:session}=useSession()
   const {
     register,
     handleSubmit,
@@ -48,6 +50,29 @@ const SignUp = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+  useEffect(()=>{
+    if(session){
+      console.log('session1', session)
+socialLogin(session)
+console.log('session222', session)
+    }
+  },[session])
+  const socialLogin = async(session)=>{
+    try {
+    const {data} =  await axios.post(
+       `${NEXT_PUBLIC_BASE_URL}/users/signup`,{
+        email:session?.user?.email,
+        name:session?.user?.name,
+        image:session?.user?.image
+      });
+      console.log('data', data)
+     router.push("/");
+     setLoading(false)
+   } catch (err) {
+     console.log("error", err);
+   }
+  }
   return (
     <div className="bg-img">
       <div className="content">
@@ -140,7 +165,7 @@ const SignUp = () => {
           <div className="google">
             <i className="fab fa fa-google">
               <span></span>
-              <span>Google</span>
+              <button onClick={()=>signIn()}>Google</button>
             </i>
           </div>
         </div>

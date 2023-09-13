@@ -23,7 +23,7 @@ const validateSchema = yup.object().shape({
 
 });
 
-const index = () => {
+const Index = () => {
   const [userId, setUserId] = useState("");
 
   useEffect(() => {
@@ -106,52 +106,52 @@ const index = () => {
     <div className="bg-img">
       <div className="content">
         <form className="update-form" onSubmit={handleSubmit(profileUpdate)}>
-        <div className="user-pic">
-  <label htmlFor="file-upload" className="file-upload-label">
-    <input
-      type="file"
-      onChange={(event) => {
-        setSelectedImageData(event.target.files[0]);
-        setSelectedImage(null);
-      }}
-    />
-    <div className="file-upload-icon">
-      <i className="fa fa-camera"></i>
-    </div>
-  </label>
-  <div className="p-img--box">
-    {/* Check if selectedImageData is available */}
-    {selectedImageData && (
-      <div>
-        {/* Render the selected image */}
-        <img
-          alt="Selected Image"
-          width={100}
-          height={100}
-          src={URL.createObjectURL(selectedImageData)} // Use createObjectURL to generate the image URL
-        />
-      </div>
-    )}
-    {selectedImage && (
-      <div className="uploaded-img">
-        <img
-          alt="Uploaded Image"
-          width={100}
-          height={100}
-          src={`${NEXT_PUBLIC_IMAGES}/public/userImage/${selectedImage}`}
-        />
-      </div>
-    )}
-    {!selectedImageData && !selectedImage && (
-      <Image
-        src={blankUser}
-        width={100}
-        height={100}
-        alt="Default Image"
-      />
-    )}
-  </div>
-</div>
+          <div className="user-pic">
+            <label htmlFor="file-upload" className="file-upload-label">
+              <input
+                type="file"
+                onChange={(event) => {
+                  setSelectedImageData(event.target.files[0]);
+                  setSelectedImage(null);
+                }}
+              />
+              <div className="file-upload-icon">
+                <i className="fa fa-camera"></i>
+              </div>
+            </label>
+            <div className="p-img--box">
+              {/* Check if selectedImageData is available */}
+              {selectedImageData && (
+                <div>
+                  {/* Render the selected image */}
+                  <img
+                    alt="Selected Image"
+                    width={100}
+                    height={100}
+                    src={URL.createObjectURL(selectedImageData)} // Use createObjectURL to generate the image URL
+                  />
+                </div>
+              )}
+              {selectedImage && (
+                <div className="uploaded-img">
+                  <img
+                    alt="Uploaded Image"
+                    width={100}
+                    height={100}
+                    src={`${NEXT_PUBLIC_IMAGES}/public/userImage/${selectedImage}`}
+                  />
+                </div>
+              )}
+              {!selectedImageData && !selectedImage && (
+                <Image
+                  src={blankUser}
+                  width={100}
+                  height={100}
+                  alt="Default Image"
+                />
+              )}
+            </div>
+          </div>
 
           <div className="field space">
             <span className="fa fa-user" />
@@ -206,4 +206,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
