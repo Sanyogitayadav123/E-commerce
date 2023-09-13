@@ -61,9 +61,9 @@ const Index = () => {
   const [selectedImage, setSelectedImage] = useState();
   const [selectedImageData, setSelectedImageData] = useState(null);
 
+//
 
 
-  
   const getUser = async () => {
     try {
       const res = await axios.get(
