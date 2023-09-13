@@ -1,10 +1,12 @@
-import React, {  useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import axios from 'axios'
 import NEXT_PUBLIC_BASE_URL from '../../../api_url';
 import {useForm} from 'react-hook-form'
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookies'
+import { useSession,signIn,signOut } from "next-auth/react";
 const Index = () => {
+  const{data:session}=useSession()
   const[emailError,setEmailError] = useState('')
   const [passwordVisible, setPasswordVisible] = useState(false);
   const[passwordError,setPasswordError] = useState('')
@@ -27,6 +29,28 @@ try {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+  useEffect(()=>{
+    if(session){
+      console.log('session1', session)
+socialLogin(session)
+console.log('session222', session)
+    }
+  },[session])
+  const socialLogin = async(session)=>{
+    try {
+    const {data} =  await axios.post(
+       `${NEXT_PUBLIC_BASE_URL}/users/signin`,{
+        email:session?.user?.email,
+        name:session?.user?.name,
+      });
+      console.log('data', data)
+     router.push("/");
+     setLoading(false)
+   } catch (err) {
+     console.log("error", err);
+   }
+  }
   return (
     <div className="bg-img">
       <div className="content">
@@ -72,6 +96,12 @@ try {
           <div className="instagram">
             <i className="fab fa-instagram">
               <span>Instagram</span>
+            </i>
+          </div>
+          <div className="google">
+            <i className="fab fa fa-google">
+              <span></span>
+              <button onClick={()=>signIn()}>Google</button>
             </i>
           </div>
         </div>
