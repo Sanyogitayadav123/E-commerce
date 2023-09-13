@@ -10,7 +10,6 @@ import jwt from 'jsonwebtoken';
 import Image from 'next/image';
 import blankUser from '../../../public/user-img.jpeg';
 import { NEXT_PUBLIC_BASE_URL, NEXT_PUBLIC_IMAGES } from '../../../api_url';
-import Avatar from '@mui/material/Avatar';
 const validateSchema = yup.object().shape({
   name: yup
     .string()
