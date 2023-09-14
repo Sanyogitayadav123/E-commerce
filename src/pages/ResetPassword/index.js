@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const index = () => {
+const Index = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [otpTimer, setOTPTimer] = useState(300); // 300 seconds = 5 minutes
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -29,7 +29,7 @@ const index = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-  
+
   return (
     <div className="bg-img">
       <div className="content">
@@ -84,4 +84,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { NEXT_PUBLIC_BASE_URL } from '../../../api_url';
 import { toast } from 'react-toastify';
 
-const index = () => {
+const Index = () => {
   const[emailError,setEmailError] = useState('')
   const{register,handleSubmit} = useForm()
 
@@ -44,4 +44,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index
