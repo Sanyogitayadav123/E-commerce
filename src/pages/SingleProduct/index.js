@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react';
 import Image from 'next/image';
 
-const index = () => {
+const Index = () => {
     return (
         <div>
             <section className="section" id="product">
@@ -85,4 +85,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index

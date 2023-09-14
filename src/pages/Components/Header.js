@@ -35,9 +35,9 @@ const Header = () => {
 
                 <ul className="nav">
                   <li className="scroll-to-section">
-                    <a href="index.html" className="active">
+                    <Link href="/" className="active">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="scroll-to-section">
                     <a href="index.html">Men&apos;s</a>
