@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookies'
 import { useSession,signIn,signOut } from "next-auth/react";
 import { NEXT_PUBLIC_BASE_URL } from '../../../api_url';
+import Link from 'next/link';
 const Index = () => {
   const{data:session}=useSession()
   const[emailError,setEmailError] = useState('')
@@ -80,7 +81,7 @@ console.log('session222', session)
           {passwordError && <p className='text-red-500'>{passwordError}</p>}
            {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
           <div className="pass">
-            <a href="#">Forgot Password?</a>
+            <Link href="/ForgetPassword">Forgot Password?</Link>
           </div>
           <div className="field">
             <input type="submit" defaultValue="LOGIN" />
