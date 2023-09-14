@@ -29,6 +29,7 @@ const index = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+  
   return (
     <div className="bg-img">
       <div className="content">
