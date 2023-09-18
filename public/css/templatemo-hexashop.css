@@ -1730,7 +1730,7 @@ Single Product Page
 }
 
 #product .left-images img {
-  width: 100%;
+  width: 80%;
   overflow: hidden;
   margin-bottom: 30px;
 }

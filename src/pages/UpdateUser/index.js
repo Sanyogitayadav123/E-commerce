@@ -64,11 +64,12 @@ const Index = () => {
 
 
   const getUser = async () => {
+    setLoading(true);
     try {
       const res = await axios.get(
         `${NEXT_PUBLIC_BASE_URL}/users/get-user-by-id/${userId}`,
       );
-      setLoading(true);
+      setLoading(false);
       const { name, email, phone } = res?.data?.user;
       setValue('name', name);
       setValue('email', email);
