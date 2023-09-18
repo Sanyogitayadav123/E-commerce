@@ -1,14 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import Header from '../Components/Header'
-import Footer from '../Components/Footer'
 
 const Index = () => {
     return (
         <>
             <div className="contact-us">
-                <Header/>
                 <div className="container mt-[120px]">
                     <div className="row">
                         <div className="col-lg-6">
@@ -185,7 +182,7 @@ const Index = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+        
         </>
     )
 }

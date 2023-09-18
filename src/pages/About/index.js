@@ -1,13 +1,10 @@
 import Link from 'next/link'
 import React from 'react';
 import Image from 'next/image';
-import Header from '../Components/Header';
-import Footer from '../Components/Footer';
-
 const  Index= () => {
   return (
     <div>
-      <Header />
+
       <div className="about-us mt-[160px]">
         <div className="container">
           <div className="row">
@@ -338,7 +335,6 @@ const  Index= () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }

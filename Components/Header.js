@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import user from "../../../public/user-img.jpeg";
+import user from "../public/user-img.jpeg";
 import Image from "next/image";
 import cookies from "js-cookies";
 import { useRouter } from "next/router";

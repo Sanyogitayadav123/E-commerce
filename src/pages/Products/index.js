@@ -1,44 +1,38 @@
-import React, { useEffect, useState } from 'react'
-import ReactPaginate from 'react-paginate';
-import Link from 'next/link'
-import Header from '../Components/Header'
-import Footer from '../Components/Footer';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import axios from 'axios';
 import { NEXT_PUBLIC_BASE_URL, NEXT_PUBLIC_IMAGES } from '../../../api_url';
-import dummyProduct from "../../../public/img-dummy-product.webp"
-
+import dummyProduct from '../../../public/img-dummy-product.webp';
 
 const Index = () => {
   // const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-
   const [products, setProducts] = useState([]);
-  console.log('products', products)
+  console.log('products', products);
   const [loading, setLoading] = useState(false);
 
   const getAllProduct = async () => {
     try {
-      const res = await axios.get(`${NEXT_PUBLIC_BASE_URL}/product/get-product`)
+      const res = await axios.get(
+        `${NEXT_PUBLIC_BASE_URL}/product/get-product`,
+      );
       setProducts(res?.data?.product);
+    } catch (err) {
+      console.log('error', err);
     }
-    catch (err) {
-      console.log("error", err)
-    }
-  }
+  };
   useEffect(() => {
-    getAllProduct()
-  }, [])
+    getAllProduct();
+  }, []);
 
   return (
     <div>
-      <Header />
-
       <section className="section mt-5" id="products">
         {loading === true ? (
           <div className="loader-box">
             <div className="loader"></div>
           </div>
         ) : (
-          ""
+          ''
         )}
         <div className="container">
           <div className="row">
@@ -60,7 +54,7 @@ const Index = () => {
                       <div className="hover-content">
                         <ul>
                           <li>
-                            <Link href={`/SingleProduct?id=${prod?._id}`} >
+                            <Link href={`/SingleProduct?id=${prod?._id}`}>
                               <i className="fa fa-eye" />
                             </Link>
                           </li>
@@ -76,10 +70,14 @@ const Index = () => {
                           </li>
                         </ul>
                       </div>
-                      {
-                        (prod?.image) ? <img src={`${NEXT_PUBLIC_IMAGES}/public/productImages/${prod?.image}`} alt='img' />
-                          : <img src={dummyProduct} alt='img' />
-                      }
+                      {prod?.image ? (
+                        <img
+                          src={`${NEXT_PUBLIC_IMAGES}/public/productImages/${prod?.image}`}
+                          alt="img"
+                        />
+                      ) : (
+                        <img src={dummyProduct} alt="img" />
+                      )}
                     </div>
                     <div className="down-content">
                       <h4>{prod?.productName}</h4>
@@ -104,7 +102,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              )
+              );
             })}
             {/* <products currentItems={prod} />
             <ReactPaginate
@@ -140,12 +138,9 @@ const Index = () => {
             </div> */}
           </div>
         </div>
-
       </section>
-      <Footer />
-
     </div>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
