@@ -20,6 +20,7 @@ const validateSchema = yup.object().shape({
     .required("Phone number is required"),
   password: yup.string().min(6, "Password should be a minimum of 6 characters"),
 });
+
 const SignUp = () => {
   const router = useRouter();
   const{data:session}=useSession()
@@ -73,6 +74,7 @@ console.log('session222', session)
      console.log("error", err);
    }
   }
+  
   return (
     <div className="bg-img">
       <div className="content">
@@ -130,7 +132,7 @@ console.log('session222', session)
               <div role="status">
                 <svg
                   aria-hidden="true"
-                  className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                  className="w-6 h-6 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600 absolute right-24 top-2"
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +148,7 @@ console.log('session222', session)
                 </svg>
                 <span className="sr-only">Loading...</span>
               </div>
-            )}
+             )} 
             <input type="submit" />
           </div>
         </form>

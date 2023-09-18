@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Banner from '../Components/Banner'
 
-const index = () => {
+const Index = () => {
     return (<>
         <Header />
         {/* ***** Main Banner Area Start ***** */}
@@ -901,4 +901,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index

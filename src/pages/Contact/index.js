@@ -1,12 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Header from '../Components/Header'
+import Footer from '../Components/Footer'
 
-const index = () => {
+const Index = () => {
     return (
         <>
             <div className="contact-us">
-                <div className="container">
+                <Header/>
+                <div className="container mt-[120px]">
                     <div className="row">
                         <div className="col-lg-6">
                             <div id="map">
@@ -182,8 +185,9 @@ const index = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }
 
-export default index
+export default Index

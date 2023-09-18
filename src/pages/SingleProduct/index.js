@@ -1,23 +1,29 @@
 import Link from 'next/link'
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import { NEXT_PUBLIC_IMAGES } from '../../../api_url';
 
-const Index = () => {
+const Index = (data) => {
     return (
         <div>
-            <section className="section" id="product">
-                <div className="container">
+            <Header />
+            <section className="section " id="product">
+                <div className="container mt-[120px]">
                     <div className="row">
                         <div className="col-lg-8">
                             <div className="left-images">
-                                <img src="images/single-product-01.jpg" alt="" />
-                                <img src="images/single-product-02.jpg" alt="" />
+
+                                <img  src={`${NEXT_PUBLIC_IMAGES}/public/productImages/${data?.data?.image}`} alt="img" />
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="right-content">
-                                <h4>New Green Jacket</h4>
-                                <span className="price">$75.00</span>
+                                <h4>{data?.data?.productName}</h4>
+                                <span className="price">${data?.data?.price}.00</span>
                                 <ul className="stars">
                                     <li>
                                         <i className="fa fa-star" />
@@ -36,8 +42,7 @@ const Index = () => {
                                     </li>
                                 </ul>
                                 <span>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod kon tempor incididunt ut labore.
+                                    {data?.data?.description}
                                 </span>
                                 <div className="quote">
                                     <i className="fa fa-quote-left" />
@@ -71,7 +76,7 @@ const Index = () => {
                                     </div>
                                 </div>
                                 <div className="total">
-                                    <h4>Total: $210.00</h4>
+                                    <h4>Total: ${data?.data?.price}.00</h4>
                                     <div className="main-border-button">
                                         <Link href="">Add To Cart</Link>
                                     </div>
@@ -81,8 +86,39 @@ const Index = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </div>
     )
 }
+
+export async function getServerSideProps(context) {
+    try {
+        let data = {};
+
+        if (context.query.id) {
+            const getSingleProduct = await axios.get(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/product/get-product-by-id/${context.query.id}`
+            );
+
+            if (getSingleProduct?.data?.product) {
+                data = getSingleProduct.data.product;
+            }
+        }
+
+        return {
+            props: {
+                data,
+            },
+        };
+    } catch (err) {
+        console.error('Error fetching data:', err);
+        return {
+            props: {
+                data: {},
+            },
+        };
+    }
+}
+
 
 export default Index
