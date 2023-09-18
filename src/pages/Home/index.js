@@ -1,13 +1,12 @@
 import React from 'react'
-import Header from '../Components/Header'
-import Footer from '../Components/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import Banner from '../Components/Banner'
+import Banner from '../../../Components/Banner'
 
-const index = () => {
+
+const Index = () => {
     return (<>
-        <Header />
+
         {/* ***** Main Banner Area Start ***** */}
         <Banner />
 
@@ -891,14 +890,9 @@ const index = () => {
                 </div>
             </div>
         </div>
-
-
-
-
-        <Footer />
     </>
 
     )
 }
 
-export default index
+export default Index

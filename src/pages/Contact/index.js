@@ -2,11 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const index = () => {
+const Index = () => {
     return (
         <>
             <div className="contact-us">
-                <div className="container">
+                <div className="container mt-[120px]">
                     <div className="row">
                         <div className="col-lg-6">
                             <div id="map">
@@ -182,8 +182,9 @@ const index = () => {
                     </div>
                 </div>
             </div>
+        
         </>
     )
 }
 
-export default index
+export default Index
